@@ -1,0 +1,19 @@
+{
+  "vendor": "madumfm2",
+  "name": "bannerroll",
+  "version": "0.0.4",
+  "title": "bannerroll",
+  "description": "App para fazer o banner rolar",
+  "builders": {
+    "react": "3.x",
+    "messages": "1.x",
+    "docs": "0.x",
+    "store": "0.x"
+  },
+  "dependencies": {},
+  "registries": [
+    "smartcheckout"
+  ],
+  "policies": [],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
