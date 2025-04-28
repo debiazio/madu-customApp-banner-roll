@@ -18,7 +18,7 @@
   animation: scrollText 95s linear infinite;
   user-select: none;
 
-  font-size: 8px;
+  font-size: 10px!important;
   padding-left: 10px;
   font-weight: 700;
   font-size: 16px;
