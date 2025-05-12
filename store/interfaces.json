@@ -1,5 +1,8 @@
 {
   "bannerroll":{
     "component": "teste"
+  },
+  "stiky": {
+    "component": "sticky"
   }
 }
