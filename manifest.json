@@ -1,7 +1,7 @@
 {
   "vendor": "madumfm2",
   "name": "bannerroll",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "title": "bannerroll",
   "description": "App para fazer o banner rolar alterecao",
   "builders": {
