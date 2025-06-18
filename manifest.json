@@ -3,7 +3,7 @@
   "name": "bannerroll",
   "version": "0.0.6",
   "title": "bannerroll",
-  "description": "App para fazer o banner rolar",
+  "description": "App para fazer o banner rolar alterecao",
   "builders": {
     "react": "3.x",
     "messages": "1.x",
