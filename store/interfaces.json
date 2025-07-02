@@ -2,7 +2,10 @@
   "bannerroll":{
     "component": "teste"
   },
-  "stiky": {
+  "sticky":{
     "component": "sticky"
+  },
+  "change-text-pdp-app":{
+    "component": "change-text-pdp"
   }
 }
