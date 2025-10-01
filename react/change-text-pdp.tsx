@@ -9,7 +9,7 @@ const RenameSkuLabels = () => {
         const text = span.textContent?.trim()
 
         switch (text) {
-          case 'colour':
+          case 'Colour':
             span.textContent = 'Estrutura'
             break
           case 'Cor':
