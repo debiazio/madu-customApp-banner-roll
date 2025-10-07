@@ -2,13 +2,14 @@ import React, { useEffect } from 'react'
 
 const Handler: React.FC = () => {
   useEffect(() => {
+    // conteúdo dos disclosures
     const contentSelectors = [
       '.vtex-disclosure-layout-1-x-content--content-tam3',
       '.vtex-disclosure-layout-1-x-content--content-tam4',
       '.vtex-disclosure-layout-1-x-content--content-tam6',
       '.vtex-disclosure-layout-1-x-content--content-tam8',
       '.vtex-disclosure-layout-1-x-content--content-tam10',
-      '.vtex-disclosure-layout-1-x-content--content-class-12',
+      '.vtex-disclosure-layout-1-x-content--content-tam12',
     ]
 
     const allContents = Array.from(
@@ -17,37 +18,65 @@ const Handler: React.FC = () => {
 
     if (allContents.length === 0) return
 
-    const defaultEl = document.querySelector<HTMLElement>(
+    const defaultContent = document.querySelector<HTMLElement>(
       '.vtex-disclosure-layout-1-x-content--content-tam3'
     )
 
-    // garante que só um está visível
-    const showOnly = (visibleEl: HTMLElement | null) => {
+    // colunas correspondentes
+    const colSelectors = [
+      '.vtex-flex-layout-0-x-flexCol--coluna-tam3',
+      '.vtex-flex-layout-0-x-flexCol--coluna-tam4',
+      '.vtex-flex-layout-0-x-flexCol--coluna-tam6',
+      '.vtex-flex-layout-0-x-flexCol--coluna-tam8',
+      '.vtex-flex-layout-0-x-flexCol--coluna-tam10',
+      '.vtex-flex-layout-0-x-flexCol--coluna-tam12',
+    ]
+
+    const allCols = Array.from(
+      document.querySelectorAll<HTMLElement>(colSelectors.join(', '))
+    )
+
+    // função que mostra apenas um conteúdo
+    const showOnly = (visibleContent: HTMLElement | null) => {
+      // conteúdo
       allContents.forEach(el => {
-        const isTarget = el === visibleEl
-        el.style.display = isTarget ? 'block' : 'none'
+        el.style.display = el === visibleContent ? 'block' : 'none'
+      })
+
+      // coluna correspondente
+      allCols.forEach(col => {
+        if (!visibleContent) {
+          col.style.display = 'none'
+          return
+        }
+        const match = col.className.includes(
+          visibleContent.className.match(/content-(tam\d+|class-\d+)/)?.[1] || ''
+        )
+        col.style.display = match ? 'block' : 'none'
       })
     }
 
-    // inicia com tam3 visível
-    showOnly(defaultEl)
+    // inicializa com o padrão
+    showOnly(defaultContent)
 
-    // observa mudanças no DOM causadas pelo disclosure da VTEX
+    // observa mudanças nos conteúdos
     const observer = new MutationObserver(() => {
-      const visibleEls = allContents.filter(
+      const visibleContents = allContents.filter(
         el => window.getComputedStyle(el).display !== 'none'
       )
 
-      if (visibleEls.length === 0) {
-        // se todos ficaram escondidos → reabre o padrão
-        showOnly(defaultEl)
-      } else if (visibleEls.length > 1) {
-        // se mais de um está aberto → fecha os outros
-        showOnly(visibleEls[visibleEls.length - 1]) // mantém o último aberto
+      if (visibleContents.length === 0) {
+        // se todos estiverem escondidos, mostra o padrão
+        showOnly(defaultContent)
+      } else if (visibleContents.length > 1) {
+        // se mais de um, mantém o último aberto
+        showOnly(visibleContents[visibleContents.length - 1])
+      } else {
+        // apenas 1 visível
+        showOnly(visibleContents[0])
       }
     })
 
-    // observar mudanças de atributos (classe/display)
     allContents.forEach(el =>
       observer.observe(el, { attributes: true, attributeFilter: ['style', 'class'] })
     )
