@@ -6,16 +6,16 @@ const RenameSkuLabels = () => {
       const spans = document.querySelectorAll('span[class*="skuSelectorName"]')
 
       spans.forEach((span) => {
-        const text = span.textContent?.trim()
+        const text = span.textContent?.trim().toLowerCase() // converte para minúscula
 
         switch (text) {
           case 'colour':
             span.textContent = 'Estrutura'
             break
-          case 'Cor':
+          case 'cor':
             span.textContent = 'cores das gavetas'
             break
-          case 'Color':
+          case 'color':
             span.textContent = 'cores dos puxadores'
             break
           default:
