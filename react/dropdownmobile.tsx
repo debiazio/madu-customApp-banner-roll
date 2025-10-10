@@ -20,7 +20,7 @@ const ShowDropdownMobile: React.FC = () => {
         })
       }
 
-      // Inicializa com o padrão
+      // Inicializa por padrão
       showOnly(defaultContent)
 
       // Observa mudanças nos conteúdos
