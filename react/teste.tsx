@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 const Handler: React.FC = () => {
   useEffect(() => {
-    // conteúdo dos disclosures
+    // Seletores dos conteúdos
     const contentSelectors = [
       '.vtex-disclosure-layout-1-x-content--content-tam3',
       '.vtex-disclosure-layout-1-x-content--content-tam4',
@@ -15,64 +15,70 @@ const Handler: React.FC = () => {
     const allContents = Array.from(
       document.querySelectorAll<HTMLElement>(contentSelectors.join(', '))
     )
-
     if (allContents.length === 0) return
 
     const defaultContent = document.querySelector<HTMLElement>(
       '.vtex-disclosure-layout-1-x-content--content-tam3'
     )
 
-    // colunas correspondentes
-    const colSelectors = [
-      '.vtex-flex-layout-0-x-flexCol--coluna-tam3',
-      '.vtex-flex-layout-0-x-flexCol--coluna-tam4',
-      '.vtex-flex-layout-0-x-flexCol--coluna-tam6',
-      '.vtex-flex-layout-0-x-flexCol--coluna-tam8',
-      '.vtex-flex-layout-0-x-flexCol--coluna-tam10',
-      '.vtex-flex-layout-0-x-flexCol--coluna-tam12',
-    ]
+    // Verifica se é desktop
+    const isDesktop = window.innerWidth >= 1024
 
-    const allCols = Array.from(
-      document.querySelectorAll<HTMLElement>(colSelectors.join(', '))
-    )
+    // Só define colunas e lógica extra se for desktop
+    const colSelectors = isDesktop
+      ? [
+          '.vtex-flex-layout-0-x-flexCol--coluna-tam3',
+          '.vtex-flex-layout-0-x-flexCol--coluna-tam4',
+          '.vtex-flex-layout-0-x-flexCol--coluna-tam6',
+          '.vtex-flex-layout-0-x-flexCol--coluna-tam8',
+          '.vtex-flex-layout-0-x-flexCol--coluna-tam10',
+          '.vtex-flex-layout-0-x-flexCol--coluna-tam12',
+        ]
+      : []
 
-    // função que mostra apenas um conteúdo
+    const allCols = isDesktop
+      ? Array.from(document.querySelectorAll<HTMLElement>(colSelectors.join(', ')))
+      : []
+
+    // Função que mostra apenas um conteúdo
     const showOnly = (visibleContent: HTMLElement | null) => {
-      // conteúdo
+      // Sempre deve haver pelo menos um visível
       allContents.forEach(el => {
         el.style.display = el === visibleContent ? 'block' : 'none'
       })
 
-      // coluna correspondente
-      allCols.forEach(col => {
-        if (!visibleContent) {
-          col.style.display = 'none'
-          return
-        }
-        const match = col.className.includes(
-          visibleContent.className.match(/content-(tam\d+|class-\d+)/)?.[1] || ''
-        )
-        col.style.display = match ? 'block' : 'none'
-      })
+      // Só aplica lógica das colunas no desktop
+      if (isDesktop) {
+        allCols.forEach(col => {
+          if (!visibleContent) {
+            col.style.display = 'none'
+            return
+          }
+          const match = col.className.includes(
+            visibleContent.className.match(/content-(tam\d+|class-\d+)/)?.[1] || ''
+          )
+          col.style.display = match ? 'block' : 'none'
+        })
+      }
     }
 
-    // inicializa com o padrão
+    // Inicializa com o padrão
     showOnly(defaultContent)
 
-    // observa mudanças nos conteúdos
+    // Observa mudanças nos conteúdos
     const observer = new MutationObserver(() => {
       const visibleContents = allContents.filter(
         el => window.getComputedStyle(el).display !== 'none'
       )
 
       if (visibleContents.length === 0) {
-        // se todos estiverem escondidos, mostra o padrão
+        // Se todos estiverem escondidos, mostra o padrão
         showOnly(defaultContent)
-      } else if (visibleContents.length > 1) {
-        // se mais de um, mantém o último aberto
+      } else if (visibleContents.length > 1 && isDesktop) {
+        // Se mais de um, mantém o último aberto (apenas no desktop)
         showOnly(visibleContents[visibleContents.length - 1])
       } else {
-        // apenas 1 visível
+        // Apenas 1 visível
         showOnly(visibleContents[0])
       }
     })

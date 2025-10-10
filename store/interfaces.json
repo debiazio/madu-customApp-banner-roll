@@ -1,11 +1,14 @@
 {
-  "handler-visualization":{
+  "dropdownmobile": {
+    "component": "dropdownmobile"
+  },
+  "handler-visualization": {
     "component": "teste"
   },
-  "sticky":{
+  "sticky": {
     "component": "sticky"
   },
-  "change-text-pdp-app":{
+  "change-text-pdp-app": {
     "component": "change-text-pdp"
   }
 }

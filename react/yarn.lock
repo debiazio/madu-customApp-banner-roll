@@ -3961,9 +3961,9 @@ lz-string@^1.4.4:
   resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
   integrity sha512-0ckx7ZHRPqb0oUm8zNr+90mtf9DQB60H1wMCjBtfi62Kl3a7JbHob6gA2bC+xRvZoOL+1hzUK8jeuEIQE8svEQ==
 
-"madumfm2.bannerroll@https://dev3madu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.9+build1759841407/public/@types/madumfm2.bannerroll":
-  version "0.0.9"
-  resolved "https://dev3madu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.9+build1759841407/public/@types/madumfm2.bannerroll#9afc5b23b066be969307059af66b21b0bbe567f2"
+"madumfm2.bannerroll@https://dev3madu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.11+build1759880643/public/@types/madumfm2.bannerroll":
+  version "0.0.11"
+  resolved "https://dev3madu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.11+build1759880643/public/@types/madumfm2.bannerroll#89e72b5868ecf2351dbbbf34d7764f652321f4f8"
 
 make-dir@^3.0.0:
   version "3.1.0"
