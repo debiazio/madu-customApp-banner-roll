@@ -18,6 +18,9 @@ const RenameSkuLabels = () => {
           case 'color':
             span.textContent = 'cores dos puxadores'
             break
+          case 'couleur':
+            span.textContent = 'cores'
+            break
           default:
             break
         }
