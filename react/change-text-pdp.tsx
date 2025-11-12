@@ -5,40 +5,38 @@ const RenameSkuLabels = () => {
     const rename = () => {
       const spans = document.querySelectorAll('span[class*="skuSelectorName"]')
 
-      spans.forEach((span) => {
-        const text = span.textContent?.trim().toLowerCase() // converte para minúscula
+      const translations: Record<string, string> = {
+        colour: 'Estrutura',
+        cor: 'cores das gavetas',
+        color: 'cores dos puxadores',
+        couleur: 'cores',
+        colore: 'cores',
+        farbe: 'cores',
+        kleuren: 'cores',
+        culoare: 'cores',
+        värit: 'cores',
+        kolory: 'cores',
+        farve: 'cores',
+        färger: 'cores',
+        farby: 'cores',
+        boje: 'cores',
+        colori: 'cores',
+      }
 
-        switch (text) {
-          case 'colour':
-            span.textContent = 'Estrutura'
-            break
-          case 'cor':
-            span.textContent = 'cores das gavetas'
-            break
-          case 'color':
-            span.textContent = 'cores dos puxadores'
-            break
-          case 'couleur':
-            span.textContent = 'cores'
-            break
-          default:
-            break
+      spans.forEach((span) => {
+        const text = span.textContent?.trim().toLowerCase()
+        if (text && translations[text]) {
+          span.textContent = translations[text]
         }
       })
     }
 
-    // Roda no início
+    // Executa inicialmente
     rename()
 
     // Observa mudanças no DOM
-    const observer = new MutationObserver(() => {
-      rename()
-    })
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    })
+    const observer = new MutationObserver(rename)
+    observer.observe(document.body, { childList: true, subtree: true })
 
     // Cleanup
     return () => observer.disconnect()
