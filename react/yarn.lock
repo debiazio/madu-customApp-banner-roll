@@ -3961,9 +3961,9 @@ lz-string@^1.4.4:
   resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
   integrity sha512-0ckx7ZHRPqb0oUm8zNr+90mtf9DQB60H1wMCjBtfi62Kl3a7JbHob6gA2bC+xRvZoOL+1hzUK8jeuEIQE8svEQ==
 
-"madumfm2.bannerroll@http://madumfm2.vtexassets.com/_v/public/typings/v1/madumfm2.bannerroll@0.0.14/public/@types/madumfm2.bannerroll":
-  version "0.0.14"
-  resolved "http://madumfm2.vtexassets.com/_v/public/typings/v1/madumfm2.bannerroll@0.0.14/public/@types/madumfm2.bannerroll#7589c8ae4c4f4b156c0ac75c4b6040a145e964d7"
+"madumfm2.bannerroll@https://devmadu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.16+build1774280243/public/@types/madumfm2.bannerroll":
+  version "0.0.16"
+  resolved "https://devmadu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.16+build1774280243/public/@types/madumfm2.bannerroll#d78ca6fcbe0e18628e77d38db08db5d2274dfb7f"
 
 make-dir@^3.0.0:
   version "3.1.0"
@@ -5341,9 +5341,9 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime":
-  version "8.136.1"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime#f163acbdb0fcc9be2065a34eb4fc797093f6d0ce"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.2/public/@types/vtex.render-runtime":
+  version "8.136.2"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.2/public/@types/vtex.render-runtime#afc85cc43da5ee3fc2f0efa000f31adada482d03"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

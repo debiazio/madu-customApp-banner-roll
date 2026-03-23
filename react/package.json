@@ -19,9 +19,9 @@
     "@vtex/tsconfig": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.5",
     "graphql": "^14.6.0",
-    "madumfm2.bannerroll": "http://madumfm2.vtexassets.com/_v/public/typings/v1/madumfm2.bannerroll@0.0.14/public/@types/madumfm2.bannerroll",
+    "madumfm2.bannerroll": "https://devmadu--madumfm2.myvtex.com/_v/private/typings/linked/v1/madumfm2.bannerroll@0.0.16+build1774280243/public/@types/madumfm2.bannerroll",
     "typescript": "3.9.7",
-    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime"
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.2/public/@types/vtex.render-runtime"
   },
   "resolutions": {
     "@types/jest": "26.0.15"

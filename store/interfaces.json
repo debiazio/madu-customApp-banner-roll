@@ -10,5 +10,8 @@
   },
   "change-text-pdp-app": {
     "component": "change-text-pdp"
+  },
+  "btnorcamento":{
+    "component": "btnorcamento"
   }
 }
